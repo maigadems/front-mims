@@ -46,18 +46,35 @@ const webpackConfig = {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
-    configure: (webpackConfig) => {
+    configure: (webpackConfig, { env }) => {
+
+      // ✅ FIX Netlify : désactiver svgo dans le minimiseur CSS en production
+      if (
+        env === "production" &&
+        webpackConfig.optimization &&
+        Array.isArray(webpackConfig.optimization.minimizer)
+      ) {
+        const cssMinimizer = webpackConfig.optimization.minimizer.find(
+          (m) => m.constructor && m.constructor.name === "CssMinimizerPlugin"
+        );
+
+        if (cssMinimizer) {
+          cssMinimizer.options.minimizerOptions = {
+            preset: ["default", { svgo: false }],
+          };
+        }
+      }
 
       // Add ignored patterns to reduce watched directories
-        webpackConfig.watchOptions = {
-          ...webpackConfig.watchOptions,
-          ignored: [
-            '**/node_modules/**',
-            '**/.git/**',
-            '**/build/**',
-            '**/dist/**',
-            '**/coverage/**',
-            '**/public/**',
+      webpackConfig.watchOptions = {
+        ...webpackConfig.watchOptions,
+        ignored: [
+          "**/node_modules/**",
+          "**/.git/**",
+          "**/build/**",
+          "**/dist/**",
+          "**/coverage/**",
+          "**/public/**",
         ],
       };
 
@@ -65,6 +82,7 @@ const webpackConfig = {
       if (config.enableHealthCheck && healthPluginInstance) {
         webpackConfig.plugins.push(healthPluginInstance);
       }
+
       return webpackConfig;
     },
   },
