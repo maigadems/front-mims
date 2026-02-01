@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import "@/App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Lenis from '@studio-freight/lenis';
 import { 
@@ -879,6 +880,7 @@ function App() {
       <div className="min-h-screen bg-background text-foreground">
         <Toaster position="top-center" richColors />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/menu" element={<MenuPage />} />
