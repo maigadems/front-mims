@@ -1,0 +1,314 @@
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.1);
+    transition: transform 0.1s linear;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.95));
+}
+
+.light .hero-overlay {
+    background: linear-gradient(to bottom, rgba(249,248,246,0.3), rgba(249,248,246,0.95));
+}
+
+/* Glass Navigation */
+.nav-glass {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .nav-glass {
+    background: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Glass Cards */
+.glass-card {
+    background: rgba(18, 18, 18, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+.light .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.light .glass-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+/* Menu Item Styling */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    transition: padding-left 0.3s ease, border-color 0.3s ease;
+}
+
+.menu-item:hover {
+    padding-left: 1rem;
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.light .menu-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .menu-item:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* Gold accent line */
+.gold-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #D4AF37, #F3E5AB);
+}
+
+/* Navigation link animation */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #D4AF37;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Button styles */
+.btn-gold {
+    background: #D4AF37;
+    color: #0A0A0A;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-gold:hover {
+    background: #F3E5AB;
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline-gold {
+    background: transparent;
+    color: #D4AF37;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    border: 2px solid #D4AF37;
+    cursor: pointer;
+}
+
+.btn-outline-gold:hover {
+    background: #D4AF37;
+    color: #0A0A0A;
+    transform: scale(1.05);
+}
+
+/* Theme toggle */
+.theme-toggle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: rotate(180deg);
+}
+
+.light .theme-toggle {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Chef section image border */
+.chef-image-wrapper {
+    position: relative;
+}
+
+.chef-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    border: 2px solid #D4AF37;
+    z-index: -1;
+}
+
+/* Service card */
+.service-card {
+    background: rgba(18, 18, 18, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: border-color 0.5s ease, transform 0.5s ease;
+}
+
+.service-card:hover {
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-4px);
+}
+
+.light .service-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Location card */
+.location-card {
+    overflow: hidden;
+    border-radius: 1rem;
+    background: rgba(18, 18, 18, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.light .location-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Image hover zoom */
+.img-hover-zoom {
+    overflow: hidden;
+}
+
+.img-hover-zoom img {
+    transition: transform 0.7s ease;
+}
+
+.img-hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* Form inputs dark style */
+.input-dark {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+    color: #EDEDED;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-dark:focus {
+    border-color: #D4AF37;
+}
+
+.input-dark::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.light .input-dark {
+    color: #1A1A1A;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light .input-dark:focus {
+    border-color: #D4AF37;
+}
+
+.light .input-dark::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile menu overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+}
+
+.light .mobile-menu-overlay {
+    background: rgba(249, 248, 246, 0.95);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Section transitions */
+section[id] {
+    scroll-margin-top: 100px;
+}
+
+/* Footer */
+.footer-link {
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #D4AF37;
+}
